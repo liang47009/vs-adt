@@ -2,8 +2,8 @@
 #define TEST_DEMO_H
 
 #include <egl/egl.h>
-//#include <GLES2/gl2.h>
-#include <GLES3/gl3.h>
+#include <GLES2/gl2.h>
+//#include <GLES3/gl3.h>
 #include "tool.h"
 #include "utils/Shader.h"
 #include "utils/math.h"
@@ -11,9 +11,7 @@
 #if defined(ANDROID) || defined(__ANDROID__)
 #include <android/asset_manager.h>
 #endif// android
-
-class GLES3Renderer
-{
+class GLES3Renderer {
 public:
 	void InitVertex(Vertex* p);
 	bool Init();

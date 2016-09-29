@@ -2,6 +2,7 @@
 #define UTILS_SHADER_H
 
 #include <vector>
+
 #if defined(__ANDROID__) || defined(ANDROID)
 #include <android/asset_manager.h>
 #include <pthread.h>

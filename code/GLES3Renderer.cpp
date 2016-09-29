@@ -11,12 +11,12 @@ unsigned int vao[1];
 unsigned int ibo[1];
 unsigned int vbo[1];
 
-static const unsigned short vertex_indices[] = { 0, 1, 2, 2, 0, 3 };
+const unsigned short vertex_indices[] = { 0, 1, 2, 2, 0, 3 };
 
-static float uWVPMatrix[16] = { 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, };
+float uWVPMatrix[16] = { 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, };
 
-static Vertex* pVertex = new Vertex[4];
+Vertex* pVertex = new Vertex[4];
 
 void GLES3Renderer::InitVertex(Vertex* p) {
 	p[0].position = FmVec4(-1.0f, -1.0f, 0.0f, 1.0f);
@@ -41,8 +41,8 @@ bool GLES3Renderer::Init() {
 
 	InitVertex(pVertex);
 
-	glGenVertexArrays(1, vao);
-	glBindVertexArray(vao[0]);
+//	glGenVertexArrays(1, vao);
+//	glBindVertexArray(vao[0]);
 
 	glGenBuffers(1, ibo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo[0]);
@@ -66,7 +66,7 @@ bool GLES3Renderer::Init() {
 void GLES3Renderer::Render() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glBindVertexArray(vao[0]);
+//	glBindVertexArray(vao[0]);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo[0]);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
 

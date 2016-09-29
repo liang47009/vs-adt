@@ -14,17 +14,6 @@ AAssetManager* Shader::mAssetManager = NULL;
 //readFile
 //---------------------------------------------------------------------------
 bool Shader::ReadFile(const char* fileName, std::vector<uint8_t>* buffer_ref) {
-	std::ifstream f(fileName, std::ios::binary);
-	if (f) {
-		f.seekg(0, std::ifstream::end);
-		std::streamoff fileSize = f.tellg();
-		f.seekg(0, std::ifstream::beg);
-		buffer_ref->reserve(fileSize);
-		buffer_ref->assign(std::istreambuf_iterator<char>(f),
-				std::istreambuf_iterator<char>());
-		f.close();
-		return true;
-	} else {
 #if defined(__ANDROID__) || defined(ANDROID)
 		if (mAssetManager) {
 			//Fallback to assetManager
@@ -50,11 +39,28 @@ bool Shader::ReadFile(const char* fileName, std::vector<uint8_t>* buffer_ref) {
 
 			return false;
 		}
-#else
+#elif defined(WIN32)
+	std::string temp("../");
+	temp.append(fileName);
+	FILE* fp = fopen(temp.c_str(), "rb");
+	if (fp == NULL)	{
 		return false;
-#endif
 	}
+
+	char buffer[1024];
+	size_t realRead = fread(buffer, sizeof(char), sizeof(buffer) - 1, fp);
+	fclose(fp);
+
+	buffer[realRead] = '\0';
+	const char* Buf = buffer;
+	buffer_ref->reserve(realRead);
+	buffer_ref->assign(Buf, Buf + realRead);
+	return true;
+#else
+	return false;
+#endif
 }
+
 GLuint Shader::LoadShader(int type, const char* strFileName) {
 	GLuint shader = glCreateShader(type);
 
