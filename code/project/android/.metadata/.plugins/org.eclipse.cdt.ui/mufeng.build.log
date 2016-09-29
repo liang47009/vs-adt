@@ -1,0 +1,14 @@
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****

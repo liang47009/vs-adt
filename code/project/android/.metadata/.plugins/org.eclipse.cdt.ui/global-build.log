@@ -1,0 +1,1240 @@
+
+**** Build of configuration Default for project mufeng ****
+
+sh ndk-build NDK_DEBUG=1 -b -j4 all 
+ERROR: You are using a non-Cygwin compatible Make program.
+Currently using: D:/cygwin64/bin/make
+
+To solve the issue, follow these steps:
+
+1. Ensure that the Cygwin 'make' package is installed.
+   NOTE: You will need GNU Make 3.81 or later!
+
+2. Define the GNUMAKE environment variable to point to it, as in:
+
+     export GNUMAKE=/usr/bin/make
+
+3. Call 'ndk-build' again.
+
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+[x86] Compile        : cpufeatures <= cpu-features.c
+[x86] Compile        : android_native_app_glue <= android_native_app_glue.c
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] StaticLibrary  : libcpufeatures.a
+[x86] StaticLibrary  : libandroid_native_app_glue.a
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+make.exe: *** No rule to make target `jni/test_demo.cpp', needed by `obj/local/x86/objs-debug/mufeng/test_demo.o'.  Stop.
+make.exe: *** Waiting for unfinished jobs....
+[x86] Compile++      : mufeng <= Shader.cpp
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Compile++      : mufeng <= test_demo.cpp
+In file included from jni/../../../../test_demo.cpp:1:0:
+jni/../../../../test_demo.h:6:23: fatal error: GLES3/gl3.h: No such file or directory
+ #include <GLES3/gl3.h>
+                       ^
+compilation terminated.
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/test_demo.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Compile++      : mufeng <= test_demo.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+In file included from jni/../../../../test_demo.cpp:1:0:
+jni/../../../../test_demo.h:6:23: fatal error: GLES3/gl3.h: No such file or directory
+ #include <GLES3/gl3.h>
+                       ^
+compilation terminated.
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/test_demo.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+[x86] Gdbsetup       : libs/x86/gdb.setup
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-17 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Compile++      : mufeng <= test_demo.cpp
+[x86] Compile        : cpufeatures <= cpu-features.c
+[x86] Compile        : android_native_app_glue <= android_native_app_glue.c
+In file included from jni/../../../../test_demo.cpp:1:0:
+jni/../../../../test_demo.h:6:23: fatal error: GLES3/gl3.h: No such file or directory
+ #include <GLES3/gl3.h>
+                       ^
+compilation terminated.
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/test_demo.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-17 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Compile++      : mufeng <= test_demo.cpp
+[x86] StaticLibrary  : libcpufeatures.a
+In file included from jni/../../../../test_demo.cpp:1:0:
+jni/../../../../test_demo.h:6:23: fatal error: GLES3/gl3.h: No such file or directory
+ #include <GLES3/gl3.h>
+                       ^
+compilation terminated.
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/test_demo.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Compile++      : mufeng <= test_demo.cpp
+[x86] Compile        : cpufeatures <= cpu-features.c
+[x86] Compile        : android_native_app_glue <= android_native_app_glue.c
+In file included from jni/../../../../test_demo.h:6:0,
+                 from jni/../../../../test_demo.cpp:1:
+D:/android-ndk-r10e/platforms/android-18/arch-x86/usr/include/GLES3/gl3.h:905:133: error: declaration of C function 'void glShaderSource(GLuint, GLsizei, const GLchar* const*, const GLint*)' conflicts with
+ GL_APICALL void           GL_APIENTRY glShaderSource (GLuint shader, GLsizei count, const GLchar* const* string, const GLint* length);
+                                                                                                                                     ^
+In file included from jni/../../../../test_demo.h:5:0,
+                 from jni/../../../../test_demo.cpp:1:
+D:/android-ndk-r10e/platforms/android-18/arch-x86/usr/include/GLES2/gl2.h:572:37: error: previous declaration 'void glShaderSource(GLuint, GLsizei, const GLchar**, const GLint*)' here
+ GL_APICALL void         GL_APIENTRY glShaderSource (GLuint shader, GLsizei count, const GLchar** string, const GLint* length);
+                                     ^
+jni/../../../../test_demo.cpp:22:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void Demo::InitVertex(Vertex* p)
+      ^
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] StaticLibrary  : libcpufeatures.a
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/test_demo.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] StaticLibrary  : libandroid_native_app_glue.a
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Compile++      : mufeng <= test_demo.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+In file included from jni/../../../../test_demo.h:6:0,
+                 from jni/../../../../test_demo.cpp:1:
+D:/android-ndk-r10e/platforms/android-18/arch-x86/usr/include/GLES3/gl3.h:905:133: error: declaration of C function 'void glShaderSource(GLuint, GLsizei, const GLchar* const*, const GLint*)' conflicts with
+ GL_APICALL void           GL_APIENTRY glShaderSource (GLuint shader, GLsizei count, const GLchar* const* string, const GLint* length);
+                                                                                                                                     ^
+In file included from jni/../../../../test_demo.h:5:0,
+                 from jni/../../../../test_demo.cpp:1:
+D:/android-ndk-r10e/platforms/android-18/arch-x86/usr/include/GLES2/gl2.h:572:37: error: previous declaration 'void glShaderSource(GLuint, GLsizei, const GLchar**, const GLint*)' here
+ GL_APICALL void         GL_APIENTRY glShaderSource (GLuint shader, GLsizei count, const GLchar** string, const GLint* length);
+                                     ^
+jni/../../../../test_demo.cpp:22:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void Demo::InitVertex(Vertex* p)
+      ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/test_demo.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Compile++      : mufeng <= test_demo.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../test_demo.cpp:22:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void Demo::InitVertex(Vertex* p)
+      ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+make.exe: *** No rule to make target `jni/../../../../test_demo.cpp', needed by `obj/local/x86/objs-debug/mufeng/__/__/__/__/test_demo.o'.  Stop.
+make.exe: *** Waiting for unfinished jobs....
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+jni/../../../../GLES3Renderer.cpp:22:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p)
+      ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+make.exe: *** No rule to make target `jni/jni/../../../..//GLES3Renderer.cpp', needed by `obj/local/x86/objs-debug/mufeng/jni/__/__/__/__//GLES3Renderer.o'.  Stop.
+make.exe: *** Waiting for unfinished jobs....
+[x86] Compile++      : mufeng <= Shader.cpp
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= win_graphdevice.cpp
+jni/../../../../..//code/win_graphdevice.cpp:24:1: error: 'HDC' does not name a type
+ HDC g_hDC;
+ ^
+jni/../../../../..//code/win_graphdevice.cpp: In member function 'bool CGraphDevice::InitDevice(EGLNativeWindowType)':
+jni/../../../../..//code/win_graphdevice.cpp:31:2: error: 'g_hDC' was not declared in this scope
+  g_hDC = GetDC(handle);
+  ^
+jni/../../../../..//code/win_graphdevice.cpp:31:22: error: 'GetDC' was not declared in this scope
+[x86] Compile++      : mufeng <= Shader.cpp
+  g_hDC = GetDC(handle);
+                      ^
+jni/../../../../..//code/win_graphdevice.cpp:35:65: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0,"Failed to create the device context", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                 ^
+jni/../../../../..//code/win_graphdevice.cpp:35:71: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0,"Failed to create the device context", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                       ^
+jni/../../../../..//code/win_graphdevice.cpp:35:89: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0,"Failed to create the device context", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                                         ^
+jni/../../../../..//code/win_graphdevice.cpp:46:54: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglInitialize() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                      ^
+jni/../../../../..//code/win_graphdevice.cpp:46:60: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglInitialize() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                            ^
+jni/../../../../..//code/win_graphdevice.cpp:46:78: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglInitialize() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                              ^
+jni/../../../../..//code/win_graphdevice.cpp:53:49: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglBindAPI failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                 ^
+jni/../../../../..//code/win_graphdevice.cpp:53:55: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglBindAPI failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                       ^
+jni/../../../../..//code/win_graphdevice.cpp:53:73: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglBindAPI failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                         ^
+jni/../../../../..//code/win_graphdevice.cpp:62:56: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglChooseConfig() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                        ^
+jni/../../../../..//code/win_graphdevice.cpp:62:62: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglChooseConfig() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                              ^
+jni/../../../../..//code/win_graphdevice.cpp:62:80: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglChooseConfig() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                                ^
+jni/../../../../..//code/win_graphdevice.cpp:77:63: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglCreateWindowSurface() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                               ^
+jni/../../../../..//code/win_graphdevice.cpp:77:69: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglCreateWindowSurface() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                     ^
+jni/../../../../..//code/win_graphdevice.cpp:77:87: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglCreateWindowSurface() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                                       ^
+jni/../../../../..//code/win_graphdevice.cpp:86:57: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglCreateContext() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                         ^
+jni/../../../../..//code/win_graphdevice.cpp:86:63: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglCreateContext() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                               ^
+jni/../../../../..//code/win_graphdevice.cpp:86:81: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglCreateContext() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                                 ^
+jni/../../../../..//code/win_graphdevice.cpp:94:55: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglMakeCurrent() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                       ^
+jni/../../../../..//code/win_graphdevice.cpp:94:61: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglMakeCurrent() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                             ^
+jni/../../../../..//code/win_graphdevice.cpp:94:79: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglMakeCurrent() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                               ^
+jni/../../../../..//code/win_graphdevice.cpp: In member function 'void CGraphDevice::Present()':
+jni/../../../../..//code/win_graphdevice.cpp:107:56: error: 'MB_OK' was not declared in this scope
+    MessageBoxA(0, "eglSwapBuffers() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);  
+                                                        ^
+jni/../../../../..//code/win_graphdevice.cpp:107:62: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+    MessageBoxA(0, "eglSwapBuffers() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);  
+                                                              ^
+jni/../../../../..//code/utils/Shader.cpp:7:26: fatal error: utils/Shader.h: No such file or directory
+ #include "utils/Shader.h"
+                          ^
+compilation terminated.
+jni/../../../../..//code/win_graphdevice.cpp:107:80: error: 'MessageBoxA' was not declared in this scope
+    MessageBoxA(0, "eglSwapBuffers() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);  
+                                                                                ^
+jni/../../../../..//code/win_graphdevice.cpp: In member function 'void CGraphDevice::ShutDevice()':
+jni/../../../../..//code/win_graphdevice.cpp:117:5: error: 'g_hDC' was not declared in this scope
+  if(g_hDC)
+     ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+jni/../../../../..//code/GLES3Renderer.cpp:22:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p)
+      ^
+jni/../../../../..//code/win_graphdevice.cpp:119:28: error: 'ReleaseDC' was not declared in this scope
+   ReleaseDC(eglWindow,g_hDC);
+                            ^
+In file included from jni/../../../../..//code/GLES3Renderer.h:9:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/math.h:45:14: warning: 'uWVPMatrix' defined but not used [-Wunused-variable]
+ static float uWVPMatrix[16] =
+              ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/win_graphdevice.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= win_graphdevice.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+jni/../../../../..//code/win_graphdevice.cpp:24:1: error: 'HDC' does not name a type
+ HDC g_hDC;
+ ^
+jni/../../../../..//code/win_graphdevice.cpp: In member function 'bool CGraphDevice::InitDevice(EGLNativeWindowType)':
+jni/../../../../..//code/win_graphdevice.cpp:31:2: error: 'g_hDC' was not declared in this scope
+  g_hDC = GetDC(handle);
+  ^
+jni/../../../../..//code/win_graphdevice.cpp:31:22: error: 'GetDC' was not declared in this scope
+  g_hDC = GetDC(handle);
+                      ^
+jni/../../../../..//code/win_graphdevice.cpp:35:65: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0,"Failed to create the device context", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                 ^
+jni/../../../../..//code/win_graphdevice.cpp:35:71: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0,"Failed to create the device context", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                       ^
+jni/../../../../..//code/win_graphdevice.cpp:35:89: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0,"Failed to create the device context", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                                         ^
+jni/../../../../..//code/win_graphdevice.cpp:46:54: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglInitialize() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                      ^
+jni/../../../../..//code/win_graphdevice.cpp:46:60: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglInitialize() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                            ^
+jni/../../../../..//code/win_graphdevice.cpp:46:78: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglInitialize() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                              ^
+jni/../../../../..//code/win_graphdevice.cpp:53:49: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglBindAPI failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                 ^
+jni/../../../../..//code/win_graphdevice.cpp:53:55: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglBindAPI failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                       ^
+jni/../../../../..//code/win_graphdevice.cpp:53:73: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglBindAPI failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                         ^
+jni/../../../../..//code/win_graphdevice.cpp:62:56: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglChooseConfig() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                        ^
+jni/../../../../..//code/win_graphdevice.cpp:62:62: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglChooseConfig() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                              ^
+jni/../../../../..//code/win_graphdevice.cpp:62:80: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglChooseConfig() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                                ^
+jni/../../../../..//code/win_graphdevice.cpp:77:63: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglCreateWindowSurface() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                               ^
+jni/../../../../..//code/win_graphdevice.cpp:77:69: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglCreateWindowSurface() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                     ^
+jni/../../../../..//code/utils/Shader.cpp:7:26: fatal error: utils/Shader.h: No such file or directory
+ #include "utils/Shader.h"
+                          ^
+compilation terminated.
+jni/../../../../..//code/win_graphdevice.cpp:77:87: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglCreateWindowSurface() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                                       ^
+jni/../../../../..//code/win_graphdevice.cpp:86:57: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglCreateContext() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                         ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+jni/../../../../..//code/win_graphdevice.cpp:86:63: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglCreateContext() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                               ^
+jni/../../../../..//code/win_graphdevice.cpp:86:81: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglCreateContext() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                                 ^
+jni/../../../../..//code/win_graphdevice.cpp:94:55: error: 'MB_OK' was not declared in this scope
+   MessageBoxA(0, "eglMakeCurrent() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                       ^
+jni/../../../../..//code/win_graphdevice.cpp:94:61: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+   MessageBoxA(0, "eglMakeCurrent() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                             ^
+jni/../../../../..//code/win_graphdevice.cpp:94:79: error: 'MessageBoxA' was not declared in this scope
+   MessageBoxA(0, "eglMakeCurrent() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);
+                                                                               ^
+jni/../../../../..//code/win_graphdevice.cpp: In member function 'void CGraphDevice::Present()':
+jni/../../../../..//code/win_graphdevice.cpp:107:56: error: 'MB_OK' was not declared in this scope
+    MessageBoxA(0, "eglSwapBuffers() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);  
+                                                        ^
+jni/../../../../..//code/win_graphdevice.cpp:107:62: error: 'MB_ICONEXCLAMATION' was not declared in this scope
+    MessageBoxA(0, "eglSwapBuffers() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);  
+                                                              ^
+jni/../../../../..//code/win_graphdevice.cpp:107:80: error: 'MessageBoxA' was not declared in this scope
+    MessageBoxA(0, "eglSwapBuffers() failed.", "Error", MB_OK|MB_ICONEXCLAMATION);  
+                                                                                ^
+jni/../../../../..//code/win_graphdevice.cpp: In member function 'void CGraphDevice::ShutDevice()':
+jni/../../../../..//code/win_graphdevice.cpp:117:5: error: 'g_hDC' was not declared in this scope
+  if(g_hDC)
+     ^
+jni/../../../../..//code/GLES3Renderer.cpp:22:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p)
+      ^
+jni/../../../../..//code/win_graphdevice.cpp:119:28: error: 'ReleaseDC' was not declared in this scope
+   ReleaseDC(eglWindow,g_hDC);
+                            ^
+In file included from jni/../../../../..//code/GLES3Renderer.h:9:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/math.h:45:14: warning: 'uWVPMatrix' defined but not used [-Wunused-variable]
+ static float uWVPMatrix[16] =
+              ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/win_graphdevice.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Compile++      : mufeng <= win_graphdevice.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+jni/../../../../..//code/utils/Shader.cpp:7:26: fatal error: utils/Shader.h: No such file or directory
+ #include "utils/Shader.h"
+                          ^
+compilation terminated.
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= win_graphdevice.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+In file included from jni/../../../../..//code/GLES3Renderer.h:9:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/math.h:45:14: warning: 'uWVPMatrix' defined but not used [-Wunused-variable]
+ static float uWVPMatrix[16] =
+              ^
+jni/../../../../..//code/GLES3Renderer.cpp:22:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p)
+      ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= win_graphdevice.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/GLES3Renderer.cpp:22:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p)
+      ^
+In file included from jni/../../../../..//code/GLES3Renderer.h:9:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/math.h:45:14: warning: 'uWVPMatrix' defined but not used [-Wunused-variable]
+ static float uWVPMatrix[16] =
+              ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/main.cpp:225:24: warning: unused parameter 'width' [-Wunused-parameter]
+ JNIEXPORT void JNICALL Java_com_yunfeng_mufeng_GL2JNILib_init(JNIEnv *, jobject,
+                        ^
+jni/../../../../..//code/main.cpp:225:24: warning: unused parameter 'height' [-Wunused-parameter]
+jni/../../../../..//code/main.cpp:234:24: warning: unused parameter 'env' [-Wunused-parameter]
+ JNIEXPORT void JNICALL Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv *env,
+                        ^
+jni/../../../../..//code/main.cpp:234:24: warning: unused parameter 'assetManager' [-Wunused-parameter]
+In file included from jni/../../../../..//code/GLES3Renderer.h:9:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/math.h:45:14: warning: 'uWVPMatrix' defined but not used [-Wunused-variable]
+ static float uWVPMatrix[16] =
+              ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/main.cpp: In function 'void Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv*, jobject, jobject)':
+jni/../../../../..//code/main.cpp:210:85: warning: format '%ld' expects argument of type 'long int', but argument 4 has type 'jobject {aka _jobject*}' [-Wformat=]
+ #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "mufeng", __VA_ARGS__))
+                                                                                     ^
+jni/../../../../..//code/main.cpp:240:2: note: in expansion of macro 'LOGI'
+  LOGI("assetManager: %ld", assetManager);
+  ^
+jni/../../../../..//code/main.cpp: At global scope:
+jni/../../../../..//code/main.cpp:238:24: warning: unused parameter 'env' [-Wunused-parameter]
+ JNIEXPORT void JNICALL Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv *env,
+                        ^
+In file included from jni/../../../../..//code/GLES3Renderer.h:9:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/math.h:45:14: warning: 'uWVPMatrix' defined but not used [-Wunused-variable]
+ static float uWVPMatrix[16] =
+              ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/main.cpp: In function 'void Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv*, jobject, jobject)':
+jni/../../../../..//code/main.cpp:210:85: warning: format '%ld' expects argument of type 'long int', but argument 4 has type 'jobject {aka _jobject*}' [-Wformat=]
+ #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "mufeng", __VA_ARGS__))
+                                                                                     ^
+jni/../../../../..//code/main.cpp:239:2: note: in expansion of macro 'LOGI'
+  LOGI("assetManager: %ld", assetManager);
+  ^
+In file included from jni/../../../../..//code/GLES3Renderer.h:9:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/math.h: At global scope:
+jni/../../../../..//code/utils/math.h:45:14: warning: 'uWVPMatrix' defined but not used [-Wunused-variable]
+ static float uWVPMatrix[16] =
+              ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/GLES3Renderer.cpp:22:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p)
+      ^
+jni/../../../../..//code/GLES3Renderer.cpp: In member function 'void GLES3Renderer::Render()':
+jni/../../../../..//code/GLES3Renderer.cpp:80:36: error: 'uWVPMatrix' was not declared in this scope
+  glUniformMatrix4fv(mat,1,GL_FALSE,uWVPMatrix);
+                                    ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/GLES3Renderer.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+jni/../../../../..//code/main.cpp: In function 'void Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv*, jobject, jobject)':
+jni/../../../../..//code/main.cpp:210:85: warning: format '%ld' expects argument of type 'long int', but argument 4 has type 'jobject {aka _jobject*}' [-Wformat=]
+ #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "mufeng", __VA_ARGS__))
+                                                                                     ^
+jni/../../../../..//code/main.cpp:239:2: note: in expansion of macro 'LOGI'
+  LOGI("assetManager: %ld", assetManager);
+  ^
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/GLES3Renderer.cpp:30:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p)
+      ^
+jni/../../../../..//code/main.cpp: In function 'void Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv*, jobject, jobject)':
+jni/../../../../..//code/main.cpp:210:85: warning: format '%ld' expects argument of type 'long int', but argument 4 has type 'jobject {aka _jobject*}' [-Wformat=]
+ #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "mufeng", __VA_ARGS__))
+                                                                                     ^
+jni/../../../../..//code/main.cpp:239:2: note: in expansion of macro 'LOGI'
+  LOGI("assetManager: %ld", assetManager);
+  ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/main.cpp: In function 'void Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv*, jobject, jobject)':
+jni/../../../../..//code/main.cpp:240:51: error: 'env' was not declared in this scope
+  AAssetManager* assetMgr = AAssetManager_fromJava(env, assetManager);
+                                                   ^
+jni/../../../../..//code/main.cpp:240:68: error: 'AAssetManager_fromJava' was not declared in this scope
+  AAssetManager* assetMgr = AAssetManager_fromJava(env, assetManager);
+                                                                    ^
+jni/../../../../..//code/main.cpp:240:17: warning: unused variable 'assetMgr' [-Wunused-variable]
+  AAssetManager* assetMgr = AAssetManager_fromJava(env, assetManager);
+                 ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/main.cpp: In function 'void Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv*, jobject, jobject)':
+jni/../../../../..//code/main.cpp:240:51: error: 'env' was not declared in this scope
+  AAssetManager* assetMgr = AAssetManager_fromJava(env, assetManager);
+                                                   ^
+jni/../../../../..//code/main.cpp:240:17: warning: unused variable 'assetMgr' [-Wunused-variable]
+  AAssetManager* assetMgr = AAssetManager_fromJava(env, assetManager);
+                 ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/main.cpp: In function 'void Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv*, jobject, jobject)':
+jni/../../../../..//code/main.cpp:240:51: error: 'env' was not declared in this scope
+  AAssetManager* assetMgr = AAssetManager_fromJava(env, assetManager);
+                                                   ^
+jni/../../../../..//code/main.cpp:241:9: error: 'class GLES3Renderer' has no member named 'setAAssetManager'
+  render.setAAssetManager(assetMgr);
+         ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/main.cpp: In function 'void Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv*, jobject, jobject)':
+jni/../../../../..//code/main.cpp:241:9: error: 'class GLES3Renderer' has no member named 'setAAssetManager'
+  render.setAAssetManager(assetMgr);
+         ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+In file included from jni/../../../../..//code/GLES3Renderer.cpp:1:0:
+jni/../../../../..//code/GLES3Renderer.h:23:42: warning: ISO C++ forbids declaration of 'setAAssetManager' with no type [-fpermissive]
+  setAAssetManager(AAssetManager* assetMgr);
+                                          ^
+jni/../../../../..//code/GLES3Renderer.cpp:30:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p)
+      ^
+In file included from jni/../../../../..//code/main.cpp:1:0:
+jni/../../../../..//code/GLES3Renderer.h:23:42: warning: ISO C++ forbids declaration of 'setAAssetManager' with no type [-fpermissive]
+  setAAssetManager(AAssetManager* assetMgr);
+                                          ^
+[x86] SharedLibrary  : libmufeng.so
+jni/../../../../..//code/main.cpp:241: error: undefined reference to 'GLES3Renderer::setAAssetManager(AAssetManager*)'
+collect2.exe: error: ld returned 1 exit status
+make.exe: *** [obj/local/x86/libmufeng.so] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/GLES3Renderer.cpp:30:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p)
+      ^
+[x86] SharedLibrary  : libmufeng.so
+jni/../../../../..//code/main.cpp:241: error: undefined reference to 'GLES3Renderer::setAAssetManager(AAssetManager*)'
+collect2.exe: error: ld returned 1 exit status
+make.exe: *** [obj/local/x86/libmufeng.so] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/GLES3Renderer.cpp:21:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p) {
+      ^
+jni/../../../../..//code/GLES3Renderer.cpp:96:6: warning: unused parameter 'assetMgr' [-Wunused-parameter]
+ void setAAssetManager(AAssetManager* assetMgr) {
+      ^
+[x86] SharedLibrary  : libmufeng.so
+jni/../../../../..//code/main.cpp:241: error: undefined reference to 'GLES3Renderer::setAAssetManager(AAssetManager*)'
+collect2.exe: error: ld returned 1 exit status
+make.exe: *** [obj/local/x86/libmufeng.so] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/GLES3Renderer.cpp:21:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p) {
+      ^
+jni/../../../../..//code/GLES3Renderer.cpp:96:6: warning: unused parameter 'assetMgr' [-Wunused-parameter]
+ void GLES3Renderer::setAAssetManager(AAssetManager* assetMgr) {
+      ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/GLES3Renderer.cpp:21:6: warning: unused parameter 'p' [-Wunused-parameter]
+ void GLES3Renderer::InitVertex(Vertex* p) {
+      ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+In file included from jni/../../../../..//code/GLES3Renderer.h:8:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/Shader.h:15:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+In file included from jni/../../../../..//code/GLES3Renderer.h:8:0,
+                 from jni/../../../../..//code/GLES3Renderer.cpp:1:
+jni/../../../../..//code/utils/Shader.h:15:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+In file included from jni/../../../../..//code/utils/Shader.cpp:7:0:
+jni/../../../../../code/utils/Shader.h:15:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+jni/../../../../..//code/utils/Shader.cpp: In static member function 'static bool Shader::ReadFileFromAssetManager(AAssetManager*, const char*, std::vector<unsigned char>*)':
+jni/../../../../..//code/utils/Shader.cpp:36:25: error: 'mutex_' was not declared in this scope
+   pthread_mutex_unlock(&mutex_);
+                         ^
+jni/../../../../..//code/utils/Shader.cpp:43:25: error: 'mutex_' was not declared in this scope
+   pthread_mutex_unlock(&mutex_);
+                         ^
+jni/../../../../..//code/utils/Shader.cpp:51:24: error: 'mutex_' was not declared in this scope
+  pthread_mutex_unlock(&mutex_);
+                        ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+In file included from jni/../../../../..//code/GLES3Renderer.h:8:0,
+                 from jni/../../../../..//code/GLES3Renderer.cpp:1:
+jni/../../../../..//code/utils/Shader.h:16:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+In file included from jni/../../../../..//code/GLES3Renderer.h:8:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/Shader.h:16:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+In file included from jni/../../../../..//code/utils/Shader.cpp:7:0:
+jni/../../../../../code/utils/Shader.h:16:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+jni/../../../../..//code/utils/Shader.cpp: In static member function 'static bool Shader::ReadFileFromAssetManager(AAssetManager*, const char*, std::vector<unsigned char>*)':
+jni/../../../../..//code/utils/Shader.cpp:36:25: error: 'mutex_' was not declared in this scope
+   pthread_mutex_unlock(&mutex_);
+                         ^
+jni/../../../../..//code/utils/Shader.cpp:43:25: error: 'mutex_' was not declared in this scope
+   pthread_mutex_unlock(&mutex_);
+                         ^
+jni/../../../../..//code/utils/Shader.cpp:51:24: error: 'mutex_' was not declared in this scope
+  pthread_mutex_unlock(&mutex_);
+                        ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+In file included from jni/../../../../..//code/GLES3Renderer.h:8:0,
+                 from jni/../../../../..//code/main.cpp:1:
+jni/../../../../..//code/utils/Shader.h:16:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+In file included from jni/../../../../..//code/GLES3Renderer.h:8:0,
+                 from jni/../../../../..//code/GLES3Renderer.cpp:1:
+jni/../../../../..//code/utils/Shader.h:16:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+In file included from jni/../../../../..//code/utils/Shader.cpp:7:0:
+jni/../../../../../code/utils/Shader.h:16:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+jni/../../../../..//code/utils/Shader.cpp: In static member function 'static bool Shader::ReadFileFromAssetManager(AAssetManager*, const char*, std::vector<unsigned char>*)':
+jni/../../../../..//code/utils/Shader.cpp:36:25: error: 'mutex_' was not declared in this scope
+   pthread_mutex_unlock(&mutex_);
+                         ^
+jni/../../../../..//code/utils/Shader.cpp:43:25: error: 'mutex_' was not declared in this scope
+   pthread_mutex_unlock(&mutex_);
+                         ^
+jni/../../../../..//code/utils/Shader.cpp:51:24: error: 'mutex_' was not declared in this scope
+  pthread_mutex_unlock(&mutex_);
+                        ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+In file included from jni/../../../../..//code/utils/Shader.cpp:7:0:
+jni/../../../../../code/utils/Shader.h:16:14: warning: extra qualification 'Shader::' on member 'ReadFileFromAssetManager' [-fpermissive]
+  static bool Shader::ReadFileFromAssetManager(AAssetManager* assetManager, const char* fileName, std::vector<uint8_t>* buffer_ref);
+              ^
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+jni/../../../../..//code/main.cpp:241: error: undefined reference to 'Shader::mAssetManager'
+collect2.exe: error: ld returned 1 exit status
+make.exe: *** [obj/local/x86/libmufeng.so] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/utils/Shader.cpp:9:1: error: 'mAssetManager' in 'class Shader' does not name a type
+ Shader::mAssetManager = NULL;
+ ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/utils/Shader.cpp:9:8: error: 'mAssetManager' in 'class Shader' does not name a type
+ static Shader::mAssetManager = NULL;
+        ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/utils/Shader.cpp:9:30: warning: 'static' may not be used when defining (as opposed to declaring) a static data member [-fpermissive]
+ static AAssetManager Shader::mAssetManager = NULL;
+                              ^
+jni/../../../../..//code/utils/Shader.cpp:9:30: error: conflicting declaration 'AAssetManager Shader::mAssetManager'
+In file included from jni/../../../../..//code/utils/Shader.cpp:7:0:
+jni/../../../../../code/utils/Shader.h:16:24: error: 'Shader::mAssetManager' has a previous declaration as 'AAssetManager* Shader::mAssetManager'
+  static AAssetManager* mAssetManager;
+                        ^
+jni/../../../../..//code/utils/Shader.cpp:9:30: warning: declaration of 'AAssetManager* Shader::mAssetManager' outside of class is not definition [-fpermissive]
+ static AAssetManager Shader::mAssetManager = NULL;
+                              ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/main.cpp: In function 'void Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv*, jobject, jobject)':
+jni/../../../../..//code/main.cpp:241:2: error: 'mAssetManager' is not a member of 'Shader'
+  Shader::mAssetManager = gAssetMgr;
+  ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/main.o] Error 1
+make.exe: *** Waiting for unfinished jobs....
+jni/../../../../..//code/utils/Shader.cpp:9:30: warning: 'static' may not be used when defining (as opposed to declaring) a static data member [-fpermissive]
+ static AAssetManager Shader::mAssetManager = NULL;
+                              ^
+jni/../../../../..//code/utils/Shader.cpp:9:30: error: 'AAssetManager Shader::mAssetManager' is not a static member of 'class Shader'
+jni/../../../../..//code/utils/Shader.cpp:9:30: error: variable 'AAssetManager Shader::mAssetManager' has initializer but incomplete type
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/utils/Shader.cpp:9:30: warning: 'static' may not be used when defining (as opposed to declaring) a static data member [-fpermissive]
+ static AAssetManager Shader::mAssetManager = NULL;
+                              ^
+jni/../../../../..//code/utils/Shader.cpp:9:30: error: conflicting declaration 'AAssetManager Shader::mAssetManager'
+In file included from jni/../../../../..//code/utils/Shader.cpp:7:0:
+jni/../../../../../code/utils/Shader.h:16:24: error: 'Shader::mAssetManager' has a previous declaration as 'AAssetManager* Shader::mAssetManager'
+  static AAssetManager* mAssetManager;
+                        ^
+jni/../../../../..//code/utils/Shader.cpp:9:30: warning: declaration of 'AAssetManager* Shader::mAssetManager' outside of class is not definition [-fpermissive]
+ static AAssetManager Shader::mAssetManager = NULL;
+                              ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+jni/../../../../..//code/utils/Shader.cpp:9:8: error: 'mAssetManager' in 'class Shader' does not name a type
+ static Shader::mAssetManager = NULL;
+        ^
+make.exe: *** [obj/local/x86/objs-debug/mufeng/__/__/__/__/__//code/utils/Shader.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+[x86] Gdbsetup       : libs/x86/gdb.setup
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project mufeng ****
+
+D:\android-ndk-r10e\ndk-build.cmd NDK_DEBUG=1 -b -j4 all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[x86] Compile++      : mufeng <= GLES3Renderer.cpp
+[x86] Compile++      : mufeng <= main.cpp
+[x86] Compile++      : mufeng <= Shader.cpp
+[x86] Gdbserver      : [x86-4.8] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[x86] SharedLibrary  : libmufeng.so
+[x86] Install        : libmufeng.so => libs/x86/libmufeng.so
+
+**** Build Finished ****
