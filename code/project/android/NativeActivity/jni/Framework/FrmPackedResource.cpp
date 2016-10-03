@@ -123,7 +123,7 @@ BOOL CFrmPackedResource::LoadFromFile( const CHAR* strFileName )
         m_pResourceTags[i].strName     = (CHAR*)&m_pSystemData[ pResourceTagIndices[i].strName ];
         m_pResourceTags[i].pSystemData = (BYTE*)&m_pSystemData[ pResourceTagIndices[i].pSystemData ];
         m_pResourceTags[i].pBufferData = (BYTE*)&m_pBufferData[ pResourceTagIndices[i].pBufferData ];
-        m_pResourceTags[i].pObject = NULL;
+        m_pResourceTags[i].pObject = (BYTE*)&m_pBufferData[ pResourceTagIndices[i].pObject ];
     }
 
     return TRUE;

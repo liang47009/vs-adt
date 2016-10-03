@@ -29,9 +29,10 @@ ifeq ($(ENABLE_NEON),true)
 	# to avoid the possibility that ndk-build will "forget" to add them on some files
 	LOCAL_ARM_NEON := true
 	TARGET_CFLAGS := $(filter-out -ffpu=vfp,$(TARGET_CFLAGS))
-	LOCAL_CFLAGS := -g $(LOCAL_C_INCLUDES:%=-I%) -DHALTI -D_OGLES3 -DUSE_PTHREADS -DUSE_GLES3_WRAPPER
+	LOCAL_CFLAGS := -g $(LOCAL_C_INCLUDES:%=-I%) -DHALTI -DUSE_PTHREADS -DUSE_GLES3_WRAPPER
 	LOCAL_CFLAGS += -pthread -DSCE_PFX_USE_SIMD_VECTORMATH -DOS_ANDROID
 	LOCAL_CFLAGS += -ffast-math -funsafe-math-optimizations -fno-strict-aliasing
+#	LOCAL_CFLAGS += -D_OGLES3
 #	LOCAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp 
 else
 	# VFP mode
