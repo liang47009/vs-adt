@@ -10,14 +10,17 @@
 // - Do not produce soft-shadows, although PCF helps with a perfomance cost
 //   (press 7 to turn on PCF)
 //
-// Author:                 QUALCOMM, Adreno SDK
+// Author:      QUALCOMM, Advanced Content Group - Snapdragon SDK
 //
 //               Copyright (c) 2013 QUALCOMM Technologies, Inc. 
 //                         All Rights Reserved. 
 //                      QUALCOMM Proprietary/GTDR
 //--------------------------------------------------------------------------------------
 #include <FrmPlatform.h>
-#include <OpenGLES/FrmGLES3.h>  // OpenGL ES 3 headers here
+#define GL_GLEXT_PROTOTYPES
+#include <EGL/egl.h>
+#include <GLES2/gl2.h>
+#include <GLES2/gl2ext.h>
 #include <FrmApplication.h>
 #include <OpenGLES/FrmFontGLES.h>
 #include <OpenGLES/FrmMesh.h>
@@ -45,7 +48,9 @@ CFrmApplication* FrmCreateApplicationInstance()
 CSample::CSample( const CHAR* strName ) : CFrmApplication( strName )
 {
     // Initialize variables
-    m_hShadowMapShader                   = 0;
+	m_Initialize						 = FALSE;
+
+	m_hShadowMapShader                   = 0;
     m_hShadowMapModelViewProjLoc         = 0;
     m_hShadowMapShadowMatrixLoc          = 0;
     m_hShadowMapScreenCoordMatrixLoc     = 0;
@@ -91,12 +96,10 @@ CSample::CSample( const CHAR* strName ) : CFrmApplication( strName )
     m_hDiffuseSpecularBufId              = 0;
     m_hDiffuseSpecularDepthBufId         = 0;
 
-    m_bShowShadowMap                     = TRUE;
+    m_nCurMeshIndex                      = 0;
+    m_bShowShadowMap                     = FALSE;
     m_bUsePCF                            = TRUE;
 
-	m_OpenGLESVersion				     = GLES3;
-
-	m_Initialize						 = FALSE;
 }
 
 
@@ -114,8 +117,8 @@ BOOL CSample::InitShaders()
         };
         const INT32 nNumShaderAttributes = sizeof(pShaderAttributes)/sizeof(pShaderAttributes[0]);
 
-        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/ShadowMap30.vs",
-                                                      "Samples/Shaders/ShadowMap30.fs",
+        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/ShadowMap.vs",
+                                                      "Samples/Shaders/ShadowMap.fs",
                                                       &m_hShadowMapShader,
                                                       pShaderAttributes, nNumShaderAttributes ) )
             return FALSE;
@@ -137,8 +140,8 @@ BOOL CSample::InitShaders()
         };
         const INT32 nNumShaderAttributes = sizeof(pShaderAttributes)/sizeof(pShaderAttributes[0]);
 
-        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/ShadowMap30.vs",
-                                                      "Samples/Shaders/ShadowMap30_2x2PCF.fs",
+        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/ShadowMap.vs",
+                                                      "Samples/Shaders/ShadowMap2x2PCF.fs",
                                                       &m_hShadowMapPCFShader,
                                                       pShaderAttributes, nNumShaderAttributes ) )
             return FALSE;
@@ -163,8 +166,8 @@ BOOL CSample::InitShaders()
         };
         const INT32 nNumShaderAttributes = sizeof(pShaderAttributes)/sizeof(pShaderAttributes[0]);
 
-        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/PerPixelLighting30.vs",
-                                                      "Samples/Shaders/PerPixelLighting30.fs",
+        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/PerPixelLighting.vs",
+                                                      "Samples/Shaders/PerPixelLighting.fs",
                                                       &m_hPerPixelLightingShader,
                                                       pShaderAttributes, nNumShaderAttributes ) )
             return FALSE;
@@ -187,8 +190,8 @@ BOOL CSample::InitShaders()
             { "g_vVertex", FRM_VERTEX_POSITION }
         };
         const INT32 nNumShaderAttributes = sizeof(pShaderAttributes)/sizeof(pShaderAttributes[0]);
-        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/Overlay30.vs",
-                                                      "Samples/Shaders/Overlay30.fs",
+        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/Overlay.vs",
+                                                      "Samples/Shaders/Overlay.fs",
                                                       &m_hOverlayShader,
                                                       pShaderAttributes, nNumShaderAttributes ) )
             return FALSE;
@@ -204,8 +207,8 @@ BOOL CSample::InitShaders()
             { "g_vVertex", FRM_VERTEX_POSITION }
         };
         const INT32 nNumShaderAttributes = sizeof(pShaderAttributes)/sizeof(pShaderAttributes[0]);
-        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/Depth30.vs",
-                                                      "Samples/Shaders/Depth30.fs",
+        if( FALSE == FrmCompileShaderProgramFromFile( "Samples/Shaders/Depth.vs",
+                                                      "Samples/Shaders/Depth.fs",
                                                       &m_hDepthShader,
                                                       pShaderAttributes, nNumShaderAttributes ) )
             return FALSE;
@@ -234,7 +237,7 @@ BOOL CSample::Initialize()
 
     // Load the packed resources
     CFrmPackedResourceGLES resource;
-    if( FALSE == resource.LoadFromFile( "Samples/Textures/ShadowMap30.pak" ) )
+    if( FALSE == resource.LoadFromFile( "Samples/Textures/ShadowMap.pak" ) )
         return FALSE;
 
     // Create the logo texture
@@ -262,32 +265,26 @@ BOOL CSample::Initialize()
         return FALSE;
     if( FALSE == m_Floor[ PLANE_FLOOR ].MakeDrawable() )
         return FALSE;
-
     if( FALSE == m_Floor[ TERRAIN_FLOOR ].Load( "Samples/Meshes/Terrain.mesh" ) )
         return FALSE;
     if( FALSE == m_Floor[ TERRAIN_FLOOR ].MakeDrawable() )
         return FALSE;
-
     if( FALSE == m_Meshes[ CUBE_MESH ].Load( "Samples/Meshes/Cube.mesh" ) )
         return FALSE;
     if( FALSE == m_Meshes[ CUBE_MESH ].MakeDrawable() )
         return FALSE;
-
     if( FALSE == m_Meshes[ SPHERE_MESH ].Load( "Samples/Meshes/Sphere.mesh" ) )
         return FALSE;
     if( FALSE == m_Meshes[ SPHERE_MESH ].MakeDrawable() )
         return FALSE;
-
     if( FALSE == m_Meshes[ BUMPY_SPHERE_MESH ].Load( "Samples/Meshes/BumpySphere.mesh" ) )
         return FALSE;
     if( FALSE == m_Meshes[ BUMPY_SPHERE_MESH ].MakeDrawable() )
         return FALSE;
-
     if( FALSE == m_Meshes[ TORUS_MESH ].Load( "Samples/Meshes/Torus.mesh" ) )
         return FALSE;
     if( FALSE == m_Meshes[ TORUS_MESH ].MakeDrawable() )
         return FALSE;
-
     if( FALSE == m_Meshes[ ROCKET_MESH ].Load( "Samples/Meshes/Rocket.mesh" ) )
         return FALSE;
     if( FALSE == m_Meshes[ ROCKET_MESH ].MakeDrawable() )
@@ -313,14 +310,14 @@ BOOL CSample::Initialize()
     CreateLightingFBO();
 
     // Setup the camera view matrix
-    FRMVECTOR3 vCameraPosition = FRMVECTOR3( 0.0f, 5.0f, 10.0f );
-    FRMVECTOR3 vCameraLookAt   = FRMVECTOR3( 0.0f, 0.0f, -2.0f );
+    FRMVECTOR3 vCameraPosition = FRMVECTOR3( 0.0f, 4.0f, 10.0f );
+    FRMVECTOR3 vCameraLookAt   = FRMVECTOR3( 0.0f, 0.0f, 0.0f );
     FRMVECTOR3 vCameraUp       = FRMVECTOR3( 0.0f, 1.0f, 0.0f );
     m_matCameraView = FrmMatrixLookAtRH( vCameraPosition, vCameraLookAt, vCameraUp );
 
     // Setup the floor's camera relative model view projection matrix
     FRMMATRIX4X4 matFloorScale            = FrmMatrixScale( 5.0f, 5.0f, 5.0f );
-    FRMMATRIX4X4 matFloorTranslate        = FrmMatrixTranslate( 0.0f, -0.5f, 0.0f );
+    FRMMATRIX4X4 matFloorTranslate        = FrmMatrixTranslate( 0.0f, -0.1f, 0.0f );
     m_matFloorModel                       = FrmMatrixMultiply( matFloorScale, matFloorTranslate );
     m_matCameraFloorModelView             = FrmMatrixMultiply( m_matFloorModel, m_matCameraView );
     m_matCameraFloorModelViewProj         = FrmMatrixMultiply( m_matCameraFloorModelView, m_matCameraPersp );
@@ -362,7 +359,7 @@ BOOL CSample::Resize()
 		return FALSE;
 	}
 
-    FLOAT32 fAspect = (FLOAT32)m_nWidth / (FLOAT32)m_nHeight;
+	FLOAT32 fAspect = (FLOAT32)m_nWidth / (FLOAT32)m_nHeight;
     m_matCameraPersp = FrmMatrixPerspectiveFovRH( FRM_PI/4.0f, fAspect, 1.0f, 100.0f );
     m_matLightPersp  = FrmMatrixPerspectiveFovRH( FRM_PI/4.0f, 1.0f, 5.0f, 20.0f );
 
@@ -376,7 +373,7 @@ BOOL CSample::Resize()
     // Initialize the viewport
     glViewport( 0, 0, m_nWidth, m_nHeight );
 
-    CreateShadowMapFBO();
+	CreateShadowMapFBO();
     CreateLightingFBO();
 
     return TRUE;
@@ -502,7 +499,7 @@ VOID CSample::Update()
     // Toggle PCF
     if( nPressedButtons & INPUT_KEY_5 )
     {
-        m_bUsePCF = !m_bUsePCF;
+        m_bUsePCF = 1 - m_bUsePCF;
     }
 
     // Toggle display of shadow map
@@ -512,10 +509,10 @@ VOID CSample::Update()
     }
 
     // Setup the mesh's camera relative model view, model view projection, and normal matrices
-	FRMVECTOR3 yAxis = FRMVECTOR3( 0.0f, 1.0f, 0.0f );
-	FRMVECTOR3 xAxis = FRMVECTOR3( 1.0f, 0.0f, 0.0f );
-    FRMMATRIX4X4 matMeshRotate    = FrmMatrixRotate( fTime, yAxis );
-    FRMMATRIX4X4 matMeshRotate2   = FrmMatrixRotate( fTime, xAxis );
+	FRMVECTOR3 vTmp = FRMVECTOR3(0.0f, 1.0f, 0.0f);
+	FRMMATRIX4X4 matMeshRotate    = FrmMatrixRotate( fTime, vTmp );
+	vTmp = FRMVECTOR3(1.0f, 0.0f, 0.0f);
+	FRMMATRIX4X4 matMeshRotate2   = FrmMatrixRotate( fTime, vTmp );
     FRMMATRIX4X4 matMeshModel     = FrmMatrixTranslate( 0.0f, 2.0f, 0.0f );
     matMeshModel                  = FrmMatrixMultiply( matMeshRotate, matMeshModel );
     matMeshModel                  = FrmMatrixMultiply( matMeshRotate2, matMeshModel );
@@ -543,21 +540,20 @@ VOID CSample::Update()
 // Name: CheckFrameBufferStatus()
 // Desc: 
 //--------------------------------------------------------------------------------------
-BOOL CSample::CheckFrameBufferStatus()
+VOID CSample::CheckFrameBufferStatus()
 {
 	GLenum nStatus;
     nStatus = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    switch( nStatus )
+
+	switch( nStatus )
     {
         case GL_FRAMEBUFFER_COMPLETE:
-            return TRUE;
+            break;
         case GL_FRAMEBUFFER_UNSUPPORTED:
-            return FALSE;
+            break;
         default:
-            FrmAssert(0);
+          FrmAssert(0);
     }
-
-    return FALSE;
 }
 
 
@@ -567,7 +563,7 @@ BOOL CSample::CheckFrameBufferStatus()
 //--------------------------------------------------------------------------------------
 VOID CSample::CreateShadowMapFBO()
 {
-    FreeShadowMapFBO();
+	FreeShadowMapFBO();
 
     // Create shadow texture
     {   
@@ -577,29 +573,20 @@ VOID CSample::CreateShadowMapFBO()
         glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
         glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,     GL_CLAMP_TO_EDGE );
         glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,     GL_CLAMP_TO_EDGE );
-        
-        // Setup hardware comparison
-        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);
-        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC, GL_LEQUAL);
-        
         glTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, 
                   m_nShadowMapFBOTextureWidth, m_nShadowMapFBOTextureHeight, 
                   0, GL_DEPTH_COMPONENT, GL_UNSIGNED_SHORT, NULL );
     }
 
+
     glGenFramebuffers( 1, &m_hShadowMapBufId );
-    glBindFramebuffer( GL_FRAMEBUFFER, m_hShadowMapBufId );
-    glFramebufferTexture2D( GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, m_hShadowMapTexId, 0 );
 
-
-	//ATI cards need you to specify no color attached
-	GLenum noColorAttach = GL_NONE;
-	glDrawBuffers( 1, &noColorAttach );
-
+	glBindFramebuffer( GL_FRAMEBUFFER, m_hShadowMapBufId );
+	glFramebufferTexture2D( GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, m_hShadowMapTexId, 0 );
     glActiveTexture( GL_TEXTURE0 );
-    glBindTexture( GL_TEXTURE_2D, m_hShadowMapTexId );
+	glBindTexture( GL_TEXTURE_2D, m_hShadowMapTexId );
  
-    CheckFrameBufferStatus();
+	CheckFrameBufferStatus();
 
     glBindFramebuffer( GL_FRAMEBUFFER, 0 );
 }
@@ -659,7 +646,7 @@ VOID CSample::GetShadowMapFBO()
 //--------------------------------------------------------------------------------------
 VOID CSample::CreateLightingFBO()
 {
-    FreeLightingFBO();
+	FreeLightingFBO();
 
     glGenRenderbuffers( 1, &m_hDiffuseSpecularDepthBufId );
     glBindRenderbuffer( GL_RENDERBUFFER, m_hDiffuseSpecularDepthBufId );    
@@ -736,27 +723,16 @@ VOID CSample::RenderScreenAlignedQuad()
     {
         -1.0, -1.0f, 0.0f, 1.0f,
         -1.0, +1.0f, 0.0f, 0.0f,
-        +1.0, -1.0f, 1.0f, 1.0f,
         +1.0, +1.0f, 1.0f, 0.0f,
+        +1.0, -1.0f, 1.0f, 1.0f,
     };
 
+    glVertexAttribPointer( 0, 4, GL_FLOAT, 0, 0, Quad );
+    glEnableVertexAttribArray( 0 );
 
-	GLuint vao;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
+    glDrawArrays( GL_TRIANGLE_FAN, 0, 4 );
 
-	GLuint vbo;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(FLOAT32) * 16, Quad, GL_DYNAMIC_DRAW);
-	glVertexAttribPointer( 0, 4, GL_FLOAT, 0, 0, 0 );
-	glEnableVertexAttribArray( 0 );
-	glDrawArrays( GL_TRIANGLE_STRIP, 0, 4 );
-
-	glDisableVertexAttribArray( 0 );
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
-
+    glDisableVertexAttribArray( 0 );
 
     glDisable( GL_TEXTURE_2D );
     glEnable( GL_DEPTH_TEST );
@@ -775,10 +751,7 @@ VOID CSample::RenderShadowMapToFBO()
     glClear( GL_DEPTH_BUFFER_BIT );
 
     glEnable( GL_POLYGON_OFFSET_FILL );
-	
 #if defined(_WIN32)
-	glPolygonOffset( 2.0f, 100.0f );
-#elif LINUX 
 	glPolygonOffset( 2.0f, 100.0f );
 #else
     glPolygonOffset( 0.1f, 1.0f );
@@ -852,7 +825,7 @@ VOID CSample::RenderBlendedLightingAndShadowMap()
         glActiveTexture( GL_TEXTURE1 );
         glBindTexture( GL_TEXTURE_2D, m_hDiffuseSpecularTexId );
         glUniform1i( m_hShadowMapPCFDiffuseSpecularMapLoc, 1 );
-        glUniform3f( m_hShadowMapPCFAmbientLoc, 0.2f, 0.2f, 0.2f );
+        glUniform4f( m_hShadowMapPCFAmbientLoc, 0.2f, 0.2f, 0.2f, 0.0f );
         glUniform1f( m_hShadowMapPCFEpsilonLoc, 0.0035f );
 
         glUniformMatrix4fv( m_hShadowMapPCFModelViewProjLoc, 1, FALSE, (FLOAT32*) &m_matCameraFloorModelViewProj );
@@ -875,7 +848,7 @@ VOID CSample::RenderBlendedLightingAndShadowMap()
         glActiveTexture( GL_TEXTURE1 );
         glBindTexture( GL_TEXTURE_2D, m_hDiffuseSpecularTexId );
         glUniform1i( m_hShadowMapDiffuseSpecularMapLoc, 1 );
-        glUniform3f( m_hShadowMapAmbientLoc, 0.2f, 0.2f, 0.2f );
+        glUniform4f( m_hShadowMapAmbientLoc, 0.2f, 0.2f, 0.2f, 0.0f );
 
         glUniformMatrix4fv( m_hShadowMapModelViewProjLoc, 1, FALSE, (FLOAT32*) &m_matCameraFloorModelViewProj );
         glUniformMatrix4fv( m_hShadowMapShadowMatrixLoc, 1, FALSE, (FLOAT32*) &m_matFloorShadowMatrix );
@@ -898,27 +871,17 @@ VOID CSample::Render()
 {
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
-    RenderShadowMapToFBO();
-    RenderLightingToFBO();
-	RenderBlendedLightingAndShadowMap();
+	 RenderShadowMapToFBO();
+     RenderLightingToFBO();
+ 
+     if( m_bShowShadowMap )
+     {
+         glBindFramebuffer( GL_FRAMEBUFFER, 0 );
+         FrmRenderTextureToScreen_GLES( -5, 5, 64, 64, m_hShadowMapTexId,
+                                        m_hOverlayShader, m_hOverlayScreenSizeLoc );
+     }
 
-    if( m_bShowShadowMap )
-    {
-		// must turn off texture comparison, otherwise rendering the texture
-		//	to screen will be wrong
-		glBindTexture( GL_TEXTURE_2D, m_hShadowMapTexId );
-        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, GL_NONE);
-        glBindTexture( GL_TEXTURE_2D, 0 );
-    
-        glBindFramebuffer( GL_FRAMEBUFFER, 0 );
-        FrmRenderTextureToScreen_GLES( 0, 0, m_nShadowMapFBOTextureWidth, m_nShadowMapFBOTextureHeight, m_hShadowMapTexId,
-                                       m_hOverlayShader, m_hOverlayScreenSizeLoc );
-    
-		// Turn comparison back on for hardware shadow map comparison
-		glBindTexture( GL_TEXTURE_2D, m_hShadowMapTexId );
-        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);
-        glBindTexture( GL_TEXTURE_2D, 0 );
-    }
+    RenderBlendedLightingAndShadowMap();
 
     // Update the timer
     m_Timer.MarkFrame();

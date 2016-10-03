@@ -41,18 +41,15 @@
 // Linux - semaphores
 #include <semaphore.h>
 
-
-#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "adreno-sdk-framework", __VA_ARGS__))
-#define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "adreno-sdk-framework", __VA_ARGS__))
-#define LOGE(...) ((void)__android_log_print(ANDROID_LOG_ERROR, "adreno-sdk-framework", __VA_ARGS__))
+#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "mufeng", __VA_ARGS__))
+#define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "mufeng", __VA_ARGS__))
+#define LOGE(...) ((void)__android_log_print(ANDROID_LOG_ERROR, "mufeng", __VA_ARGS__))
 
 #define _CRT_STRINGIZE(x) #x
 #define PLATFORM ANDROID
 
-static void CheckGlError(const char* op)
-{
-	for (GLint error = glGetError(); error; error = glGetError())
-	{
+static void CheckGlError(const char* op) {
+	for (GLint error = glGetError(); error; error = glGetError()) {
 		LOGI("after %s() glError (0x%x)\n", op, error);
 	}
 }
@@ -60,54 +57,53 @@ static void CheckGlError(const char* op)
 //--------------------------------------------------------------------------------------
 // Common types
 //--------------------------------------------------------------------------------------
-typedef unsigned char      BYTE;
+typedef unsigned char BYTE;
 
-typedef char               CHAR;
-typedef char               CHAR8;
-typedef unsigned char      UCHAR;
-typedef unsigned char      UCHAR8;
+typedef char CHAR;
+typedef char CHAR8;
+typedef unsigned char UCHAR;
+typedef unsigned char UCHAR8;
 
-typedef wchar_t            WCHAR;
-typedef unsigned short     UCHAR16;
+typedef wchar_t WCHAR;
+typedef unsigned short UCHAR16;
 
-typedef signed char        INT8;
-typedef signed short       INT16;
-typedef signed int         INT32;
-typedef unsigned char      UINT8;
-typedef unsigned short     UINT16;
-typedef unsigned int       UINT32;
+typedef signed char INT8;
+typedef signed short INT16;
+typedef signed int INT32;
+typedef unsigned char UINT8;
+typedef unsigned short UINT16;
+typedef unsigned int UINT32;
 
-typedef float              FLOAT;
-typedef float              FLOAT32;
-typedef double             FLOAT64;
+typedef float FLOAT;
+typedef float FLOAT32;
+typedef double FLOAT64;
 
-typedef int                BOOL;
+typedef int BOOL;
 
-typedef unsigned short     WORD;
-typedef unsigned long      DWORD;
+typedef unsigned short WORD;
+typedef unsigned long DWORD;
 
 #ifndef VOID
-    #define VOID void
+#define VOID void
 #endif
 
 #ifndef TRUE
-    #define TRUE 1
+#define TRUE 1
 #endif
 
 #ifndef FALSE
-    #define FALSE 0
+#define FALSE 0
 #endif
 
 #ifndef NULL
-    #define NULL 0
+#define NULL 0
 #endif
 
-const UINT32 NATIVE_APP_WIDTH  = 480;
+const UINT32 NATIVE_APP_WIDTH = 480;
 const UINT32 NATIVE_APP_HEIGHT = 765;
 
 #define SAFE_DELETE(p)              if ((p) != NULL) delete (p); (p) = NULL;
 #define SAFE_FREE(p)                if ((p) != NULL) free(p); (p) = NULL;
-
 
 #ifdef ANDROID_CL
 VOID FrmAndroidUpdateImage( int viewID, const CHAR* path );

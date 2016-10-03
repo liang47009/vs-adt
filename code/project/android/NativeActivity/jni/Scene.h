@@ -2,7 +2,7 @@
 // File: Scene.h
 // Desc: 
 //
-// Author:                 QUALCOMM, Adreno SDK
+// Author:      QUALCOMM, Advanced Content Group - Snapdragon SDK
 //
 //               Copyright (c) 2013 QUALCOMM Technologies, Inc. 
 //                         All Rights Reserved. 
@@ -42,7 +42,7 @@ public:
 private:
     BOOL InitShaders();
 
-    BOOL CheckFrameBufferStatus();
+    VOID CheckFrameBufferStatus();
 
     VOID FreeMeshes();
 
@@ -59,6 +59,8 @@ private:
     VOID RenderLightingToFBO();
     VOID RenderProjectedShadowMapToFBO();
     VOID RenderBlendedLightingAndShadowMap();
+
+	BOOL				   m_Initialize;
 
     CFrmFontGLES           m_Font;
     CFrmUserInterfaceGLES  m_UserInterface;
@@ -151,8 +153,6 @@ private:
     FRMVECTOR3         m_vLightPosition;
     BOOL               m_bShowShadowMap;
     BOOL               m_bUsePCF;
-
-	BOOL               m_Initialize;
 };
 
 

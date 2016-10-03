@@ -40,7 +40,7 @@ else
 	LOCAL_CFLAGS += -mfpu=vfp -mfloat-abi=softfp
 endif
 
-LOCAL_CFLAGS += -DCORE_GL_CONTEXT
+#LOCAL_CFLAGS += -DCORE_GL_CONTEXT
 
 LOCAL_MODULE := app
 
@@ -48,7 +48,7 @@ LOCAL_SRC_FILES := $(MY_CPP_LIST:$(LOCAL_PATH)/%=%)
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH) $(LOCAL_PATH)/Framework $(LOCAL_PATH)/Framework/Android
 
-LOCAL_LDLIBS := -llog -landroid -lEGL -lGLESv3
+LOCAL_LDLIBS := -llog -landroid -lEGL -lGLESv2
 
 LOCAL_CFLAGS += -Wno-psabi -Wno-conversion-null -Wno-write-strings
 #-Wcast-align

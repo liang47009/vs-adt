@@ -4,4 +4,4 @@ APP_STL		:= gnustl_static
 APP_CFLAGS	:= -Wno-error=format-security 
 APP_CFLAGS	+= -D__ANDROID__ -DANDROID -DDEBUG -DUSE_NDK_PROFILER
 APP_CPPFLAGS := -Wall -Wextra -fexceptions -frtti -fpermissive -std=c++11
-APP_PLATFORM := android-21
+APP_PLATFORM := android-9
