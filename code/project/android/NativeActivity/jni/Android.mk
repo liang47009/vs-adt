@@ -30,11 +30,13 @@ ifeq ($(ENABLE_NEON),true)
 	LOCAL_ARM_NEON := true
 	TARGET_CFLAGS := $(filter-out -ffpu=vfp,$(TARGET_CFLAGS))
 	LOCAL_CFLAGS := -g $(LOCAL_C_INCLUDES:%=-I%) -DHALTI -D_OGLES3 -DUSE_PTHREADS -DUSE_GLES3_WRAPPER
-	LOCAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -pthread -DSCE_PFX_USE_SIMD_VECTORMATH -DOS_ANDROID  
+	LOCAL_CFLAGS += -pthread -DSCE_PFX_USE_SIMD_VECTORMATH -DOS_ANDROID
 	LOCAL_CFLAGS += -ffast-math -funsafe-math-optimizations -fno-strict-aliasing
+#	LOCAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp 
 else
 	# VFP mode
-	LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -DUSE_PTHREADS -mfpu=vfp -mfloat-abi=softfp -pthread -DOS_ANDROID
+	LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -DUSE_PTHREADS -pthread -DOS_ANDROID
+	LOCAL_CFLAGS += -mfpu=vfp -mfloat-abi=softfp
 endif
 
 LOCAL_CFLAGS += -DCORE_GL_CONTEXT
