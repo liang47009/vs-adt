@@ -1,8 +1,7 @@
 #ifndef UTILS_TEXTURE_H
 #define UTILS_TEXTURE_H
 
-class Texture
-{
+class Texture {
 	bool LoadTexture(const char* fileName);
 };
 

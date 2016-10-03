@@ -84,6 +84,10 @@ int WinMainProc(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, i
 {
 	GLES3Renderer demo;
 	CGraphDevice graphedevice;
+
+	DWORD FACE_WIDTH = 480;
+	DWORD FACE_HEIGHT = 480;
+
 	// ��С��ջ
 	if (true)
 	{
@@ -104,10 +108,8 @@ int WinMainProc(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, i
 		wndclass.hIconSm = NULL;
 
 		RegisterClassEx(&wndclass);
-		DWORD FACE_WIDTH = 1280;
-		DWORD FACE_HEIGHT = 720;
 		RECT winRect;
-		SetRect(&winRect, 0, 0, 1280, 720);
+		SetRect(&winRect, 0, 0, FACE_WIDTH, FACE_HEIGHT);
 		AdjustWindowRectEx(&winRect, WS_CAPTION | WS_SYSMENU, false, 0);
 
 		int x = -winRect.left;
@@ -153,7 +155,7 @@ int WinMainProc(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, i
 	// ����Ϣѭ��
 	MSG msg;
 
-	demo.Init();
+	demo.Init(FACE_WIDTH, FACE_HEIGHT);
 
 	for (;;)
 	{
@@ -228,7 +230,7 @@ JNIEXPORT void JNICALL Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv *,
 JNIEXPORT void JNICALL Java_com_yunfeng_mufeng_GL2JNILib_init(JNIEnv *, jobject,
 		jint width, jint height) {
 	LOGI("width: %d, height: %d", width, height);
-	render.Init();
+	render.Init(width, height);
 }
 
 JNIEXPORT void JNICALL Java_com_yunfeng_mufeng_GL2JNILib_step(JNIEnv *,
@@ -239,8 +241,7 @@ JNIEXPORT void JNICALL Java_com_yunfeng_mufeng_GL2JNILib_step(JNIEnv *,
 JNIEXPORT void JNICALL Java_com_yunfeng_mufeng_GL2JNILib_created(JNIEnv *env,
 		jobject, jobject assetManager) {
 	gAssetMgr = AAssetManager_fromJava(env, assetManager);
-	Shader::mAssetManager = gAssetMgr;
-	render.setAAssetManager(gAssetMgr);
+	shader::mAssetManager = gAssetMgr;
 //	created(assetMgr);
 }
 

@@ -1,99 +1,118 @@
 #include "GLES3Renderer.h"
 
-#define MAX_LOADSTRING 100
-#define VPOSITION 0
-#define VCOLOR 1
-#define VTEXCOORD 2
+GLuint CreateSimpleTexture2D() {
+	// Use tightly packed data
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
-unsigned int nProgramHandler;
+	// Generate a texture object
+	GLuint texture;
+	glGenTextures(1, &texture);
 
-unsigned int vao[1];
-unsigned int ibo[1];
-unsigned int vbo[1];
+	// Bind the texture object
+	glBindTexture(GL_TEXTURE_2D, texture);
 
-const unsigned short vertex_indices[] = { 0, 1, 2, 2, 0, 3 };
+	// Load the texture: 2x2 Image, 3 bytes per pixel (R, G, B)
+	const size_t width = 2;
+	const size_t height = 2;
+	GLubyte pixels[width * height * 3] = { 255, 0, 0, // Red
+		0, 255, 0, // Green
+		0, 0, 255, // Blue
+		255, 255, 0, // Yellow
+	};
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB,
+		GL_UNSIGNED_BYTE, pixels);
+	// Set the filtering mode
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-float uWVPMatrix[16] = { 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, };
-
-Vertex* pVertex = new Vertex[4];
-
-void GLES3Renderer::InitVertex(Vertex* p) {
-	p[0].position = FmVec4(-1.0f, -1.0f, 0.0f, 1.0f);
-	p[0].color = FmVec4(1.0f, 1.0f, 1.0f, 1.0f);
-
-	p[1].position = FmVec4(1.0f, -1.0f, 0.0f, 1.0f);
-	p[1].color = FmVec4(1.0f, 1.0f, 0.0f, 1.0f);
-
-	p[2].position = FmVec4(1.0f, 1.0f, 0.0f, 1.0f);
-	p[2].color = FmVec4(1.0f, 0.0f, 1.0f, 1.0f);
-
-	p[3].position = FmVec4(-1.0f, 1.0f, 0.0f, 1.0f);
-	p[3].color = FmVec4(0.0f, 1.0f, 1.0f, 1.0f);
+	return texture;
 }
 
-bool GLES3Renderer::Init() {
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LEQUAL);
+bool GLES3Renderer::Init(unsigned long width, unsigned long height) {
+	GLuint vert_shader, frag_shader;
+	//	char *vert_shader_pathname, *frag_shader_pathname;
+	const char* strVsh = "res/scripts/test.vsh";
+	const char* strFsh = "res/scripts/test.fsh";
 
-	nProgramHandler = Shader::CreateProgram("res/scripts/test.vsh",
-			"res/scripts/test.fsh");
+	// Create shader program
+	gProgram = glCreateProgram();
+	// Create and compile vertex shader
+	if (!shader::CompileShader(&vert_shader, GL_VERTEX_SHADER,
+		strVsh)) {
+		glDeleteProgram(gProgram);
+		return false;
+	}
 
-	InitVertex(pVertex);
+	// Create and compile fragment shader
+	if (!shader::CompileShader(&frag_shader, GL_FRAGMENT_SHADER,
+		strFsh)) {
+		glDeleteProgram(gProgram);
+		return false;
+	}
 
-//	glGenVertexArrays(1, vao);
-//	glBindVertexArray(vao[0]);
+	// Attach vertex shader to program
+	glAttachShader(gProgram, vert_shader);
 
-	glGenBuffers(1, ibo);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo[0]);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(vertex_indices),
-			vertex_indices, GL_STATIC_DRAW);
+	// Attach fragment shader to program
+	glAttachShader(gProgram, frag_shader);
 
-	glGenBuffers(1, vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+	if (!shader::LinkProgram(gProgram)) {
+		LOGI("link error!");
+		return;
+	}
+	// Use the program object
+	glUseProgram(gProgram);
 
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 4, NULL, GL_DYNAMIC_DRAW);
+	// Get the attribute locations
+	gPositionLoc = glGetAttribLocation(gProgram, "a_position");
+	gTexCoordLoc = glGetAttribLocation(gProgram, "a_texCoord");
+	// Get the sampler location
+	gSamplerLoc = glGetUniformLocation(gProgram, "s_texture");
+	// Load the texture
+	gTexture = CreateSimpleTexture2D();
+	//	gTexture = CreateSimpleTexture2D(gAssetMgr, "texture/brick.png");
 
-	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(Vertex) * 4, pVertex);
-
-	glUseProgram(nProgramHandler);
-
-	//LoadTexture("..\\Resource\\aaa.jpg");
-
+	glClearColor(0.3f, 0.3f, 0.3f, 0.3f);
+	// Set the viewport
+	glViewport(0, 0, width, height);
 	return true;
 }
 
+GLfloat vertices[] = { 
+	-0.5f, 0.5f, 0.0f, // Position 0
+	0.0f, 0.0f, // TexCoord 0
+	-0.5f, -0.5f, 0.0f, // Position 1
+	0.0f, 1.0f, // TexCoord 1
+	0.5f, -0.5f, 0.0f, // Position 2
+	1.0f, 1.0f, // TexCoord 2
+	0.5f, 0.5f, 0.0f, // Position 3
+	1.0f, 0.0f // TexCoord 3
+};
+
+GLushort indices[] = { 0, 1, 2, 0, 2, 3 };
+
 void GLES3Renderer::Render() {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-//	glBindVertexArray(vao[0]);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo[0]);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+	// Clear the color buffer
+	glClear(GL_COLOR_BUFFER_BIT);
 
-// 	int fColor = glGetUniformLocation(nProgramHandler,"sTexture");
-// 	int fColor1 = glGetUniformLocation(nProgramHandler,"sTexture1");
+	// Load the vertex position
+	glVertexAttribPointer(gPositionLoc, 3, GL_FLOAT, GL_FALSE,
+		5 * sizeof(GLfloat), vertices);
+	// Load the texture coordinate
+	glVertexAttribPointer(gTexCoordLoc, 2, GL_FLOAT, GL_FALSE,
+		5 * sizeof(GLfloat), vertices + 3);
 
-	int mat = glGetUniformLocation(nProgramHandler, "uWVPMatrix");
-	glUniformMatrix4fv(mat, 1, GL_FALSE, uWVPMatrix);
+	glEnableVertexAttribArray(gPositionLoc);
+	glEnableVertexAttribArray(gTexCoordLoc);
 
-// 	glUniform1i(0,fColor);
-// 	glActiveTexture(GL_TEXTURE0);
-// 	glBindTexture(GL_TEXTURE_2D,1);
+	// Bind the texture
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, gTexture);
 
-	glVertexAttribPointer(VPOSITION, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	glVertexAttribPointer(VCOLOR, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-			(void*) (4 * sizeof(float)));
-	//glVertexAttribPointer(VTEXCOORD,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)(8 * sizeof(float)));
+	// Set the texture sampler to texture unit to 0
+	glUniform1i(gSamplerLoc, 0);
 
-	glEnableVertexAttribArray(VPOSITION);
-	glEnableVertexAttribArray(VCOLOR);
-	//glEnableVertexAttribArray(VTEXCOORD); 
-
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, NULL);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices);
 }
 
-#if defined(ANDROID) || defined(__ANDROID__)
-void GLES3Renderer::setAAssetManager(AAssetManager* assetMgr) {
-	this->assetMgr = assetMgr;
-}
-#endif// android

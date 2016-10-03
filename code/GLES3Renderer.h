@@ -8,20 +8,17 @@
 #include "utils/Shader.h"
 #include "utils/math.h"
 #include "Texture.h"
-#if defined(ANDROID) || defined(__ANDROID__)
-#include <android/asset_manager.h>
-#endif// android
+
 class GLES3Renderer {
 public:
 	void InitVertex(Vertex* p);
-	bool Init();
+	bool Init(unsigned long width, unsigned long height);
 	void Render();
-
-#if defined(ANDROID) || defined(__ANDROID__)
-	void setAAssetManager(AAssetManager* assetMgr);
-
-	AAssetManager* assetMgr;
-#endif// android
+	GLuint gProgram;
+	GLuint gPositionLoc;
+	GLuint gTexCoordLoc;
+	GLuint gSamplerLoc;
+	GLuint gTexture;
 };
 
 #endif // !TEST_DEMO_H

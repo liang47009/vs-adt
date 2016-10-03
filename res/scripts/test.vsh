@@ -1,22 +1,10 @@
-
-precision mediump float;
-precision mediump int;        
-
-attribute mediump vec4 aPosition; 
-attribute mediump vec4 aColor; 
-//attribute mediump vec2 aTextureCoord; 
-
-varying mediump vec4 vColor;                                 
-//varying mediump vec2 vTextureCoord; 
-
-uniform mediump mat4 uWVPMatrix;
+#version 100 es
+attribute vec4 a_position;
+attribute vec2 a_texCoord;
+varying vec2 v_texCoord;
 
 void main()
 {
-    mediump vec4 pos = vec4(aPosition.xyz,1.0);
-    
-    gl_Position = uWVPMatrix * pos;
-    
-    vColor = aColor;                                
-    //vTextureCoord = aTextureCoord; 
+	gl_Position = a_position;
+	v_texCoord = a_texCoord;
 }
