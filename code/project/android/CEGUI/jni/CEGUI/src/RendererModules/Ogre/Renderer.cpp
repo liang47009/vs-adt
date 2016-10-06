@@ -36,6 +36,8 @@
 #include "CEGUI/RendererModules/Ogre/ImageCodec.h"
 #include "CEGUI/Logger.h"
 
+#include "AndroidLogger.h"
+
 #include <OgreRoot.h>
 #include <OgreRenderSystem.h>
 #include <OgreRenderWindow.h>
@@ -784,7 +786,8 @@ void OgreRenderer::constructor_impl(Ogre::RenderTarget& target)
     d_pimpl->d_displaySize.d_width  = target.getWidth();
     d_pimpl->d_displaySize.d_height = target.getHeight();
 
-    d_pimpl->d_useGLSLCore = ( d_pimpl->d_renderSystem->getName().compare(0, 8, "OpenGL 3") == 0 ) ;
+    d_pimpl->d_useGLSLCore = ( d_pimpl->d_renderSystem->getName().compare(0, 11, "OpenGL ES 3") == 0 ) ;
+//    d_pimpl->d_useGLSLCore = false;
 
     // create default target & rendering root (surface) that uses it
     d_pimpl->d_defaultTarget =
@@ -876,15 +879,15 @@ void OgreRenderer::initialiseShaders()
         isLanguageSupported("glsles");
 
     Ogre::String shaderLanguage;
-    if(d_pimpl->d_useGLSL)
-    {
-        if(d_pimpl->d_useGLSLCore)
-            shaderLanguage = "glsles";
-        else
-            shaderLanguage = "glsles";
-    }
-    else
-        shaderLanguage = "hlsl";
+	if (d_pimpl->d_useGLSL) {
+		if (d_pimpl->d_useGLSLCore) {
+			shaderLanguage = "glsles";
+		} else {
+			shaderLanguage = "glsles";
+		}
+	} else {
+		shaderLanguage = "hlsl";
+	}
 
     // Create vertex shader
     d_pimpl->d_vertexShader = Ogre::HighLevelGpuProgramManager::getSingleton().
